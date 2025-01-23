@@ -330,7 +330,7 @@ class NERACAController extends Controller
 
         $kewajiban_ekuitas = $eku + $kewajiban->kewajiban_22;
         $kewajiban_ekuitas_lalu = $eku_lalu + $kewajiban->kewajiban_21;
-        $nilai_cp = collect(DB::select("SELECT sum(b.rupiah) as nilai_cp from trhkasin_pkd a inner join trdkasin_pkd b on a.kd_skpd = b.kd_skpd and a.no_sts = b.no_sts where a.jns_cp='3' and a.kd_skpd='$kd_skpd'"))->first();
+        $nilai_cp = collect(DB::select("SELECT sum(b.rupiah) as nilai_cp from trhkasin_pkd a inner join trdkasin_pkd b on a.kd_skpd = b.kd_skpd and a.no_sts = b.no_sts where a.jns_cp='3' and b.kd_rek6 ='110103010001' and a.kd_skpd='$kd_skpd'"))->first();
         // dd ($nilai_cp);  
 
         $view = view('laporan_keuangan.neraca.print', array(
