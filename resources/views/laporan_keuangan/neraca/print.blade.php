@@ -166,6 +166,19 @@
                             {{ $value->nilai_lalu >= 0 ? rupiah($value->nilai_lalu) : '(' . rupiah(abs($value->nilai_lalu)) . ')' }}
                         </td>
                     </tr>
+                @elseif($value->group_id == '4')
+                    <tr>
+                        <td class="right">{{ $value->group_id }}</td>
+                        <td class="{{ $value->is_bold ? 'bold' : '' }}"
+                            style="<?= $value->padding ? 'padding-left:' . $value->padding . 'px;' : '' ?>">
+                            {{ $value->group_name }}</td>
+                        <td class="kanan {{ $value->is_bold ? 'bold' : '' }}">
+                            {{ $value->nilai_berjalan >= 0 ? rupiah($value->nilai_berjalan + $nilai_cp->nilai_cp) : '(' . rupiah(abs($value->nilai_berjalan - $nilai_cp)) . ')' }}
+                        </td>
+                        <td class="kanan {{ $value->is_bold ? 'bold' : '' }}">
+                            {{ $value->nilai_lalu >= 0 ? rupiah($value->nilai_lalu) : '(' . rupiah(abs($value->nilai_lalu)) . ')' }}
+                        </td>
+                    </tr>
                 @elseif($value->group_name == 'RK PPKD')
                     <tr>
                         <td class="right">{{ $value->group_id }}</td>
