@@ -46,7 +46,7 @@ class InputJurnalController extends Controller
         $kd_skpd = Auth::user()->kd_skpd;
         $role = Auth::user()->role;
 
-        if($role == 1){
+        if($role == 1 || $role == 3){
             $skpd1 = DB::table('ms_skpd')->get();
         }else{
             $skpd1 = DB::table('ms_skpd')->where(['kd_skpd' => $kd_skpd])->get();
